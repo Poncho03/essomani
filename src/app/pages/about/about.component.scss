@@ -1,0 +1,15 @@
+.carousel-inner {
+    height: 91vh;
+}
+
+.info-image {
+    width: 100%;
+    height: 10rem;
+    object-fit: cover;
+}
+
+@media only screen and (max-width: 1349px) {
+    .carousel-inner {
+        height: unset;
+    }
+}
