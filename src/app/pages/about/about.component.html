@@ -6,13 +6,62 @@
     </div>
 </div>
 
-<div class="container text-center mt-5">
-    <div class="card mb-3">
-        <img src="assets/img/test.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+<div class="container mt-4">
+
+    <div class="row">
+        <div class="col-lg-6 col-sm-12 mb-3">
+            <div class="card">
+                <img src="assets/img/test.jpg" class="card-img-top info-image" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Misión</h5>
+                    <p class="card-text text-justify">
+                        Apoyar al desarrollo de las empresas y sus potenciales clientes aplicando el más alto estándar de calidad en cada proyecto realizado con el uso eficiente de cada recurso, además de la mejora continua en cada uno de nuestros procesos.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-sm-12 mb-3">
+            <div class="card">
+                <img src="assets/img/test.jpg" class="card-img-top info-image" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Visión</h5>
+                    <p class="card-text text-justify">
+                        Alcanzar a ser una de las empresas líder en desarrollo de proyectos a nivel nacional, reconocida por la calidad en cada proceso, servicio, versatilidad de productos y con una gran responsabilidad social.
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-lg-6 col-sm-12 mb-3">
+            <div class="card">
+                <img src="assets/img/test.jpg" class="card-img-top info-image" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Valores</h5>
+                    <ul>
+                        <li *ngFor="let value of values">
+                            <p class="m-0"><small>{{value.value}}</small></p>
+                            <p class="text-muted text-justify"><small>{{value.description}}</small></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-sm-12 mb-3">
+            <div class="card">
+                <img src="assets/img/test.jpg" class="card-img-top info-image" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Nuestro compromiso</h5>
+                    <p class="card-text">En Essomani, como empresa, nos comprometemos a:</p>
+                    <ul>
+                        <li *ngFor="let compromise of compromises; let i = index">
+                            {{compromise.content}}
+                            <hr *ngIf="i < compromises.length - 1">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
