@@ -14,9 +14,9 @@
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/home">Inicio</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" routerLink="/companies">Empresas</a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/products">Servicios</a>
                 </li>
@@ -26,9 +26,10 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Contacto</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="#">Correo electrónico</a></li>
-                        <li><a class="dropdown-item" href="#">Télefono celular</a></li>
-                        <li><a class="dropdown-item" href="#">Dirección</a></li>
+                        <li><a class="dropdown-item" routerLink="/contact">Necesito información</a></li>
+                        <li><a class="dropdown-item" routerLink="/contact" fragment="email">Correo electrónico</a></li>
+                        <li><a class="dropdown-item" routerLink="/contact" fragment="phone">Télefono celular</a></li>
+                        <li><a class="dropdown-item" routerLink="/contact" fragment="location">Dirección</a></li>
                     </ul>
                 </li>
             </ul>
