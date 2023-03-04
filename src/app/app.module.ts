@@ -14,6 +14,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
