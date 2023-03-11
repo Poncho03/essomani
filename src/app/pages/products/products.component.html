@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-lg-4 col-sm-12 mb-3" *ngFor="let product of products">
             <div class="card">
-                <img src="assets/img/test.jpg" class="card-img-top info-image" alt="...">
+                <img [src]="product.image" class="card-img-top info-image" alt="...">
                 <div class="card-body">
                     <h5 class="card-title mb-3">{{product.title}}</h5>
                     <ul class="card-text">
@@ -21,7 +21,7 @@
     <p class="text-center my-4">Estos son algunos ejemplos de nuestro trabajo:</p>
 
     <div class="card card-example bg-dark text-white mb-3">
-        <img src="assets/img/pachuca.jpg" class="card-img info-image-example" alt="...">
+        <img src="assets/img/services-images/pachuca.jpg" class="card-img info-image-example" alt="...">
         <div class="card-img-overlay">
           <h5 class="card-title">Maltera en Palma Gorda, Pachuca, Hidalgo, México</h5>
           <p class="card-text">Tanque de acero al carbón, con medidas de 9 metros de diametro x 9 metros de altura</p>
@@ -29,7 +29,7 @@
     </div>
 
     <div class="card card-example bg-dark text-white mb-3">
-        <img src="assets/img/jarritos.jpg" class="card-img info-image-example" alt="...">
+        <img src="assets/img/services-images/jarritos.jpg" class="card-img info-image-example" alt="...">
         <div class="card-img-overlay">
           <h5 class="card-title">Planta Jarritos, Nuevo Laredo, Tamaulipas, México</h5>
           <p class="card-text">Montaje de 3 condesarodes evaporativos</p>
@@ -37,7 +37,7 @@
     </div>
 
     <div class="card card-example bg-dark text-white mb-3">
-        <img src="assets/img/totis.jpg" class="card-img info-image-example" alt="...">
+        <img src="assets/img/services-images/totis.jpg" class="card-img info-image-example" alt="...">
         <div class="card-img-overlay">
           <h5 class="card-title">Planta Totis, Pachuca, Hidalgo, México</h5>
           <p class="card-text">Tanque de acero inoxidable de 3.5 metros de diametro x 4.80 metros de altura</p>
