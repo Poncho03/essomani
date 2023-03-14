@@ -2,8 +2,18 @@
     height: 93vh;
 }
 
+.image-fixed{
+    height: 93vh;
+    object-fit: cover;
+}
+
 @media only screen and (max-width: 1349px) {
     .carousel-inner {
         height: unset;
+    }
+
+    .image-fixed {
+        height: unset;
+        object-fit: cover;
     }
 }
