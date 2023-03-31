@@ -14,7 +14,7 @@ export class AboutComponent implements OnInit {
   public values: Values[] = [];
   public compromises: Compromise[] = [];
   public images: Images[] = [
-    { url: "assets/img/test.jpg" }
+    { url: "assets/img/nosotros.jpg" }
   ];
 
   constructor(private baseService: BaseService) { }

@@ -12,7 +12,7 @@ export class ProductsComponent implements OnInit {
 
   public products: Products[] = [];
   public images: Images[] = [
-    { url: "assets/img/test.jpg" }
+    { url: "assets/img/services-images/carousel/servicios.jpg" }
   ];
 
   constructor(private baseService: BaseService) {}

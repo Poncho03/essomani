@@ -12,7 +12,7 @@ export class CompaniesComponent implements OnInit{
 
   public specialities: Specialities[] = [];
   public images: Images[] = [
-    { url: "assets/img/carousel-images/nuestraGente.jpg" }
+    { url: "assets/img/specialities-images/carousel/nuestra_gente.jpg" }
   ];
 
   constructor(private baseService: BaseService) {}

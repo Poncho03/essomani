@@ -9,11 +9,11 @@ import { Images } from 'src/app/interfaces/image';
 export class HomeComponent {
 
   public images: Images[] = [
-    { url: "assets/img/carousel-images/essomani01.jpg" },
-    { url: "assets/img/test.jpg" },
-    { url: "assets/img/test.jpg" },
-    { url: "assets/img/test.jpg" },
-    { url: "assets/img/test.jpg" }
+    { url: "assets/img/home-images/carousel/home01.jpg" }
+    // { url: "assets/img/home-images/carousel/home02.jpg" }
+    // { url: "assets/img/test.jpg" },
+    // { url: "assets/img/test.jpg" },
+    // { url: "assets/img/test.jpg" }
   ];
 
 }
