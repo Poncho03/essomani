@@ -6,13 +6,19 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { ProductsComponent } from './pages/products/products.component';
+import { PrivacyComponent } from './pages/info/privacy/privacy.component';
+import { FaqsComponent } from './pages/info/faqs/faqs.component';
+import { DevelopmentComponent } from './pages/info/development/development.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'our-people', component: CompaniesComponent },
   { path: 'services', component: ProductsComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'privacy', component: PrivacyComponent },
+  { path: 'faqs', component: FaqsComponent },
+  { path: 'development', component: DevelopmentComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];

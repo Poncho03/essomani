@@ -15,6 +15,9 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { CommonModule } from '@angular/common';
+import { PrivacyComponent } from './pages/info/privacy/privacy.component';
+import { FaqsComponent } from './pages/info/faqs/faqs.component';
+import { DevelopmentComponent } from './pages/info/development/development.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { CommonModule } from '@angular/common';
     ProductsComponent,
     AboutComponent,
     ContactComponent,
-    CarouselComponent
+    CarouselComponent,
+    PrivacyComponent,
+    FaqsComponent,
+    DevelopmentComponent
   ],
   imports: [
     BrowserModule,
