@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'privacy', component: PrivacyComponent },
   { path: 'faqs', component: FaqsComponent },
   { path: 'development', component: DevelopmentComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
 
