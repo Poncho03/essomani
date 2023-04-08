@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /privacy
+Disallow: /faqs
+Disallow: /development
+
+Sitemap: https://www.essomani.com/sitemap.xml
