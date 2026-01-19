@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essomani - Concepto de Rediseño</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'essomani': {
+                            red: '#DC2626',
+                            'red-dark': '#B91C1C',
+                            'red-light': '#FEE2E2',
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out',
+                        'fade-in': 'fadeIn 1s ease-out',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-fade-in-up-delay {
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+            opacity: 0;
+        }
+
+        .animate-fade-in-up-delay-2 {
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+            opacity: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.85) 100%),
+                        url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .service-card:hover .service-image {
+            filter: grayscale(0);
+            transform: scale(1.05);
+        }
+
+        .specialty-card:hover .specialty-overlay {
+            opacity: 1;
+        }
+
+        .specialty-card:hover .specialty-image {
+            transform: scale(1.1);
+        }
+
+        .value-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .nav-blur {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-slate-50">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 nav-blur bg-slate-800/95 border-b border-slate-700/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3">
+                    <img src="src/assets/logo/essomani_logo.png" alt="Essomani Logo" class="w-12 h-12 object-contain">
+                    <span class="text-white font-bold text-xl tracking-tight">ESSOMANI</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="#inicio" class="text-white hover:text-red-500 transition-colors font-medium">Inicio</a>
+                    <a href="#servicios" class="text-gray-300 hover:text-red-500 transition-colors font-medium">Servicios</a>
+                    <a href="#especialidades" class="text-gray-300 hover:text-red-500 transition-colors font-medium">Especialidades</a>
+                    <a href="#nosotros" class="text-gray-300 hover:text-red-500 transition-colors font-medium">Nosotros</a>
+                    <a href="#contacto" class="text-gray-300 hover:text-red-500 transition-colors font-medium">Contacto</a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden lg:block">
+                    <a href="#contacto" class="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-2.5 rounded-lg transition-all hover:shadow-lg hover:shadow-red-600/25">
+                        Solicitar cotización
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button class="lg:hidden text-white p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-bg min-h-screen flex items-center justify-center relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center lg:text-left">
+            <div class="lg:max-w-3xl">
+                <span class="animate-fade-in-up inline-block bg-amber-500/20 text-amber-400 text-sm font-semibold px-4 py-2 rounded-full mb-6">
+                    Más de 15 años de experiencia
+                </span>
+                <h1 class="animate-fade-in-up text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-tight mb-6">
+                    Especialistas en
+                    <span class="text-red-500">Soldadura</span> y
+                    <span class="text-red-500">Mantenimiento Industrial</span>
+                </h1>
+                <p class="animate-fade-in-up-delay text-xl text-gray-300 mb-10 max-w-2xl">
+                    Calidad, seguridad y compromiso en cada proyecto. Desarrollamos soluciones industriales con los más altos estándares para las mejores empresas del país.
+                </p>
+                <div class="animate-fade-in-up-delay-2 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <a href="#servicios" class="bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-4 rounded-lg transition-all hover:shadow-xl hover:shadow-red-600/30 text-center">
+                        Conocer servicios
+                    </a>
+                    <a href="#contacto" class="border-2 border-white/80 text-white hover:bg-white hover:text-slate-800 font-semibold px-8 py-4 rounded-lg transition-all text-center">
+                        Solicitar cotización
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#porque" class="text-white/60 hover:text-white transition-colors">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Por qué elegirnos -->
+    <section id="porque" class="py-20 lg:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">¿Por qué elegir Essomani?</h2>
+                <p class="text-slate-600 text-lg max-w-2xl mx-auto">Combinamos experiencia, calidad y compromiso para ofrecer soluciones industriales de primer nivel.</p>
+            </div>
+
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+                <!-- Card 1 -->
+                <div class="bg-slate-50 rounded-2xl p-6 lg:p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-slate-100">
+                    <div class="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-5">
+                        <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-3xl lg:text-4xl font-bold text-slate-800 mb-2">+15</h3>
+                    <p class="text-slate-500 font-medium">Años de experiencia</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-slate-50 rounded-2xl p-6 lg:p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-slate-100">
+                    <div class="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-5">
+                        <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-3xl lg:text-4xl font-bold text-slate-800 mb-2">100%</h3>
+                    <p class="text-slate-500 font-medium">Calidad garantizada</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-slate-50 rounded-2xl p-6 lg:p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-slate-100">
+                    <div class="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-5">
+                        <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-3xl lg:text-4xl font-bold text-slate-800 mb-2">100%</h3>
+                    <p class="text-slate-500 font-medium">Talento mexicano</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-slate-50 rounded-2xl p-6 lg:p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-slate-100">
+                    <div class="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-5">
+                        <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-3xl lg:text-4xl font-bold text-slate-800 mb-2">+50</h3>
+                    <p class="text-slate-500 font-medium">Proyectos completados</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="py-20 lg:py-28 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-slate-200 text-slate-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">Nuestros Servicios</span>
+                <h2 class="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">Soluciones industriales integrales</h2>
+                <p class="text-slate-600 text-lg max-w-2xl mx-auto">Desde fabricación hasta montaje, cubrimos todas las necesidades de tu empresa.</p>
+            </div>
+
+            <!-- Service 1 -->
+            <div class="service-card bg-white rounded-2xl shadow-sm overflow-hidden mb-8 lg:flex border border-slate-100 hover:shadow-lg transition-shadow">
+                <div class="lg:w-1/2 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Fabricación y montaje de pailería" 
+                         class="service-image w-full h-64 lg:h-full object-cover grayscale transition-all duration-500">
+                </div>
+                <div class="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center">
+                    <h3 class="text-2xl lg:text-3xl font-bold text-slate-800 mb-4">Fabricación y montaje de pailería</h3>
+                    <p class="text-slate-600 mb-6">Desarrollamos piezas y equipos especiales fabricados en placa y lámina de acero al carbón e inoxidable con los más altos estándares de calidad.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-slate-100 text-slate-600 text-sm font-medium px-3 py-1.5 rounded-lg">Conos</span>
+                        <span class="bg-slate-100 text-slate-600 text-sm font-medium px-3 py-1.5 rounded-lg">Tolvas</span>
+                        <span class="bg-slate-100 text-slate-600 text-sm font-medium px-3 py-1.5 rounded-lg">Tanques</span>
+                        <span class="bg-slate-100 text-slate-600 text-sm font-medium px-3 py-1.5 rounded-lg">Estructuras metálicas</span>
+                        <span class="bg-slate-100 text-slate-600 text-sm font-medium px-3 py-1.5 rounded-lg">Ductos</span>
+                        <span class="bg-slate-100 text-slate-600 text-sm font-medium px-3 py-1.5 rounded-lg">Transportadores</span>
+                    </div>
+                    <a href="#contacto" class="inline-flex items-center text-red-600 hover:text-red-700 font-semibold transition-colors">
+                        Solicitar información
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card bg-white rounded-2xl shadow-sm overflow-hidden mb-8 lg:flex lg:flex-row-reverse border border-slate-100 hover:shadow-lg transition-shadow">
+                <div class="lg:w-1/2 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Montaje y alineación de maquinaria" 
+                         class="service-image w-full h-64 lg:h-full object-cover grayscale transition-all duration-500">
+                </div>
+                <div class="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center">
+                    <h3 class="text-2xl lg:text-3xl font-bold text-slate-800 mb-4">Montaje y alineación de maquinaria</h3>
+                    <p class="text-slate-600 mb-6">Instalación profesional y alineación de precisión para todo tipo de maquinaria y equipo industrial.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-slate-100 text-slate-600 text-sm font-medium px-3 py-1.5 rounded-lg">Motores</span>
+                        <span class="bg-slate-100 text-slate-600 text-sm font-medium px-3 py-1.5 rounded-lg">Bombas</span>
+                        <span class="bg-slate-100 text-slate-600 text-sm font-medium px-3 py-1.5 rounded-lg">Extractores</span>
+                        <span class="bg-slate-100 text-slate-600 text-sm font-medium px-3 py-1.5 rounded-lg">Compresores</span>
+                        <span class="bg-slate-100 text-slate-600 text-sm font-medium px-3 py-1.5 rounded-lg">Equipo industrial</span>
+                    </div>
+                    <a href="#contacto" class="inline-flex items-center text-red-600 hover:text-red-700 font-semibold transition-colors">
+                        Solicitar información
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card bg-white rounded-2xl shadow-sm overflow-hidden lg:flex border border-slate-100 hover:shadow-lg transition-shadow">
+                <div class="lg:w-1/2 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1586864387789-628af9feed72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Transportadores industriales" 
+                         class="service-image w-full h-64 lg:h-full object-cover grayscale transition-all duration-500">
+                </div>
+                <div class="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center">
+                    <h3 class="text-2xl lg:text-3xl font-bold text-slate-800 mb-4">Montaje y reparación de transportadores</h3>
+                    <p class="text-slate-600 mb-6">Especialistas en sistemas de transporte industrial para todo tipo de aplicaciones, incluyendo grado alimenticio.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-slate-100 text-slate-600 text-sm font-medium px-3 py-1.5 rounded-lg">Banda</span>
+                        <span class="bg-slate-100 text-slate-600 text-sm font-medium px-3 py-1.5 rounded-lg">Cadena</span>
+                        <span class="bg-slate-100 text-slate-600 text-sm font-medium px-3 py-1.5 rounded-lg">Cangilones</span>
+                        <span class="bg-slate-100 text-slate-600 text-sm font-medium px-3 py-1.5 rounded-lg">Helicoidal</span>
+                        <span class="bg-slate-100 text-slate-600 text-sm font-medium px-3 py-1.5 rounded-lg">Grado alimenticio</span>
+                    </div>
+                    <a href="#contacto" class="inline-flex items-center text-red-600 hover:text-red-700 font-semibold transition-colors">
+                        Solicitar información
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Especialidades -->
+    <section id="especialidades" class="py-20 lg:py-28 bg-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-amber-500/20 text-amber-400 text-sm font-semibold px-4 py-2 rounded-full mb-4">Materiales</span>
+                <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">Nuestras especialidades</h2>
+                <p class="text-slate-400 text-lg max-w-2xl mx-auto">Trabajamos con los mejores materiales y técnicas del mercado.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <!-- Specialty cards -->
+                <div class="specialty-card group relative overflow-hidden rounded-xl aspect-square cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                         alt="Acero al carbón" 
+                         class="specialty-image w-full h-full object-cover transition-transform duration-500">
+                    <div class="specialty-overlay absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent flex items-end p-4 opacity-80 transition-opacity">
+                        <span class="text-white font-semibold text-sm">Tubería de acero al carbón</span>
+                    </div>
+                </div>
+
+                <div class="specialty-card group relative overflow-hidden rounded-xl aspect-square cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1567789884554-0b844b597180?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                         alt="Acero inoxidable" 
+                         class="specialty-image w-full h-full object-cover transition-transform duration-500">
+                    <div class="specialty-overlay absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent flex items-end p-4 opacity-80 transition-opacity">
+                        <span class="text-white font-semibold text-sm">Acero inoxidable</span>
+                    </div>
+                </div>
+
+                <div class="specialty-card group relative overflow-hidden rounded-xl aspect-square cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                         alt="Placa de acero" 
+                         class="specialty-image w-full h-full object-cover transition-transform duration-500">
+                    <div class="specialty-overlay absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent flex items-end p-4 opacity-80 transition-opacity">
+                        <span class="text-white font-semibold text-sm">Placa de acero al carbón</span>
+                    </div>
+                </div>
+
+                <div class="specialty-card group relative overflow-hidden rounded-xl aspect-square cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1533106497176-45ae19e68ba2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                         alt="Aleaciones" 
+                         class="specialty-image w-full h-full object-cover transition-transform duration-500">
+                    <div class="specialty-overlay absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent flex items-end p-4 opacity-80 transition-opacity">
+                        <span class="text-white font-semibold text-sm">Aleaciones</span>
+                    </div>
+                </div>
+
+                <div class="specialty-card group relative overflow-hidden rounded-xl aspect-square cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1590959651373-a3db0f38a961?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                         alt="Tubería sanitaria" 
+                         class="specialty-image w-full h-full object-cover transition-transform duration-500">
+                    <div class="specialty-overlay absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent flex items-end p-4 opacity-80 transition-opacity">
+                        <span class="text-white font-semibold text-sm">Tubería sanitaria</span>
+                    </div>
+                </div>
+
+                <div class="specialty-card group relative overflow-hidden rounded-xl aspect-square cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                         alt="Soldaduras radiografiadas" 
+                         class="specialty-image w-full h-full object-cover transition-transform duration-500">
+                    <div class="specialty-overlay absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent flex items-end p-4 opacity-80 transition-opacity">
+                        <span class="text-white font-semibold text-sm">Soldaduras con calidad radiografiada</span>
+                    </div>
+                </div>
+
+                <div class="specialty-card group relative overflow-hidden rounded-xl aspect-square cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                         alt="Tanques" 
+                         class="specialty-image w-full h-full object-cover transition-transform duration-500">
+                    <div class="specialty-overlay absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent flex items-end p-4 opacity-80 transition-opacity">
+                        <span class="text-white font-semibold text-sm">Tanques de todo tipo</span>
+                    </div>
+                </div>
+
+                <div class="specialty-card group relative overflow-hidden rounded-xl aspect-square cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                         alt="Equipos herméticos" 
+                         class="specialty-image w-full h-full object-cover transition-transform duration-500">
+                    <div class="specialty-overlay absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent flex items-end p-4 opacity-80 transition-opacity">
+                        <span class="text-white font-semibold text-sm">Equipos herméticos a presión</span>
+                    </div>
+                </div>
+
+                <div class="specialty-card group relative overflow-hidden rounded-xl aspect-square cursor-pointer lg:col-span-2">
+                    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                         alt="Placa inoxidable" 
+                         class="specialty-image w-full h-full object-cover transition-transform duration-500">
+                    <div class="specialty-overlay absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent flex items-end p-4 opacity-80 transition-opacity">
+                        <span class="text-white font-semibold text-sm">Placa de acero inoxidable</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Valores -->
+    <section id="nosotros" class="py-20 lg:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-slate-100 text-slate-600 text-sm font-semibold px-4 py-2 rounded-full mb-4">Nuestra Filosofía</span>
+                <h2 class="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">Valores que nos definen</h2>
+                <p class="text-slate-600 text-lg max-w-2xl mx-auto">Los principios que guían cada uno de nuestros proyectos y relaciones de negocio.</p>
+            </div>
+
+            <div class="grid grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <!-- Value 1 -->
+                <div class="value-card bg-slate-50 rounded-xl p-6 lg:p-8 transition-all duration-300 hover:shadow-xl hover:bg-white border border-slate-100 hover:border-red-100">
+                    <div class="w-14 h-14 bg-slate-800 rounded-lg flex items-center justify-center mb-5">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Compromiso</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Cumplir en tiempo y forma las actividades asignadas, haciéndonos responsables de las consecuencias de nuestros actos.</p>
+                </div>
+
+                <!-- Value 2 -->
+                <div class="value-card bg-slate-50 rounded-xl p-6 lg:p-8 transition-all duration-300 hover:shadow-xl hover:bg-white border border-slate-100 hover:border-red-100">
+                    <div class="w-14 h-14 bg-slate-800 rounded-lg flex items-center justify-center mb-5">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Disciplina</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">El trabajo en equipo lo es todo. Cada trabajador tiene un rol esencial en el desarrollo de cada proyecto.</p>
+                </div>
+
+                <!-- Value 3 -->
+                <div class="value-card bg-slate-50 rounded-xl p-6 lg:p-8 transition-all duration-300 hover:shadow-xl hover:bg-white border border-slate-100 hover:border-red-100">
+                    <div class="w-14 h-14 bg-slate-800 rounded-lg flex items-center justify-center mb-5">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Lealtad</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Respetamos las decisiones de la empresa y tratamos toda información con el más alto grado de discreción.</p>
+                </div>
+
+                <!-- Value 4 -->
+                <div class="value-card bg-slate-50 rounded-xl p-6 lg:p-8 transition-all duration-300 hover:shadow-xl hover:bg-white border border-slate-100 hover:border-red-100">
+                    <div class="w-14 h-14 bg-slate-800 rounded-lg flex items-center justify-center mb-5">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Honor</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Nos sentimos orgullosos de ser parte de cada proyecto. La satisfacción del cliente es nuestra meta.</p>
+                </div>
+
+                <!-- Value 5 -->
+                <div class="value-card bg-slate-50 rounded-xl p-6 lg:p-8 transition-all duration-300 hover:shadow-xl hover:bg-white border border-slate-100 hover:border-red-100">
+                    <div class="w-14 h-14 bg-slate-800 rounded-lg flex items-center justify-center mb-5">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Integridad</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Aplicamos en todo momento la ética y la honestidad profesional, buscando relaciones de negocio justas.</p>
+                </div>
+
+                <!-- Value 6 -->
+                <div class="value-card bg-slate-50 rounded-xl p-6 lg:p-8 transition-all duration-300 hover:shadow-xl hover:bg-white border border-slate-100 hover:border-red-100">
+                    <div class="w-14 h-14 bg-slate-800 rounded-lg flex items-center justify-center mb-5">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Respeto</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">En todo momento buscamos el respeto mutuo en cada acuerdo y relación comercial que establecemos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Misión y Visión -->
+    <section class="py-20 lg:py-28 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Misión -->
+                <div class="bg-white rounded-2xl p-8 lg:p-12 shadow-sm border border-slate-100 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-red-50 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                    <div class="relative">
+                        <div class="w-16 h-16 bg-red-600 rounded-xl flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl lg:text-3xl font-bold text-slate-800 mb-4">Nuestra Misión</h3>
+                        <p class="text-slate-600 leading-relaxed text-lg">
+                            Ofrecer servicios metal mecánicos con la confianza de años de experiencia y conocimiento, brindando a las empresas seguridad, confort y tranquilidad al permitirnos ser parte de cada una de ellas, contribuyendo al crecimiento mutuo con una relación franca y honesta.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Visión -->
+                <div class="bg-slate-800 rounded-2xl p-8 lg:p-12 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-red-600/20 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                    <div class="relative">
+                        <div class="w-16 h-16 bg-red-600 rounded-xl flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl lg:text-3xl font-bold text-white mb-4">Nuestra Visión</h3>
+                        <p class="text-slate-300 leading-relaxed text-lg">
+                            Alcanzar a ser una empresa líder y competitiva en calidad, seguridad, tiempos de entrega, costos, trabajos sobre presión, y sobre todo la responsabilidad que precede de una confianza otorgada por el cliente.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Empresas que confían -->
+    <section class="py-16 bg-white border-y border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-slate-400 font-medium mb-10">Empresas que confían en nosotros</p>
+            <div class="flex flex-wrap justify-center items-center gap-12 lg:gap-20">
+                <div class="text-3xl font-bold text-slate-200 hover:text-red-600 transition-colors cursor-pointer">TOTIS</div>
+                <div class="text-3xl font-bold text-slate-200 hover:text-red-600 transition-colors cursor-pointer">JARRITOS</div>
+                <div class="text-3xl font-bold text-slate-200 hover:text-red-600 transition-colors cursor-pointer">PACHUCA</div>
+                <div class="text-3xl font-bold text-slate-200 hover:text-red-600 transition-colors cursor-pointer">+10 más</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="py-20 lg:py-28 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-slate-200 text-slate-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">Contáctanos</span>
+                <h2 class="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">¿Listo para comenzar tu proyecto?</h2>
+                <p class="text-slate-600 text-lg max-w-2xl mx-auto">Estamos aquí para ayudarte. Contáctanos y recibe una cotización personalizada.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Formulario -->
+                <div class="bg-white rounded-2xl p-8 lg:p-10 shadow-sm border border-slate-100">
+                    <h3 class="text-xl font-bold text-slate-800 mb-6">Envíanos un mensaje</h3>
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Nombre completo</label>
+                            <input type="text" class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-red-500 focus:outline-none transition-colors" placeholder="Tu nombre">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Correo electrónico</label>
+                            <input type="email" class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-red-500 focus:outline-none transition-colors" placeholder="correo@ejemplo.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Empresa (opcional)</label>
+                            <input type="text" class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-red-500 focus:outline-none transition-colors" placeholder="Nombre de tu empresa">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Mensaje</label>
+                            <textarea rows="4" class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-red-500 focus:outline-none transition-colors resize-none" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-4 rounded-lg transition-all hover:shadow-lg hover:shadow-red-600/25">
+                            Enviar mensaje
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Info de contacto -->
+                <div class="space-y-6">
+                    <!-- Email -->
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 flex items-start gap-5 hover:shadow-md transition-shadow">
+                        <div class="w-14 h-14 bg-red-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg class="w-7 h-7 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 mb-1">Correo electrónico</h4>
+                            <a href="mailto:fco.gonzalez@essomani.com" class="text-red-600 hover:text-red-700 font-medium">fco.gonzalez@essomani.com</a>
+                            <p class="text-slate-400 text-sm mt-1">Respondemos en menos de 24 horas</p>
+                        </div>
+                    </div>
+
+                    <!-- Teléfono -->
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 flex items-start gap-5 hover:shadow-md transition-shadow">
+                        <div class="w-14 h-14 bg-red-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg class="w-7 h-7 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 mb-1">Teléfono</h4>
+                            <a href="tel:+522721178195" class="text-red-600 hover:text-red-700 font-medium">(+52) 272-117-8195</a>
+                            <p class="text-slate-400 text-sm mt-1">Lun - Vie: 8:00 - 17:00 | Sáb: 8:00 - 13:00</p>
+                        </div>
+                    </div>
+
+                    <!-- Ubicación -->
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 flex items-start gap-5 hover:shadow-md transition-shadow">
+                        <div class="w-14 h-14 bg-red-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg class="w-7 h-7 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 mb-1">Ubicación</h4>
+                            <p class="text-slate-600">Sur 9 #22-A esquina Oriente 1</p>
+                            <p class="text-slate-400 text-sm">CP. 94460, Ixtaczoquitlán, Veracruz, México</p>
+                        </div>
+                    </div>
+
+                    <!-- Mapa placeholder -->
+                    <div class="bg-slate-100 rounded-xl h-48 flex items-center justify-center overflow-hidden border border-slate-200">
+                        <div class="text-center">
+                            <svg class="w-12 h-12 text-slate-300 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+                            </svg>
+                            <p class="text-slate-400 text-sm">Aquí iría el mapa de Google Maps</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="py-20 bg-slate-800 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-red-600/10 to-transparent"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+            <h2 class="text-3xl lg:text-5xl font-bold text-white mb-6">¿Tienes un proyecto en mente?</h2>
+            <p class="text-xl text-slate-300 mb-10">Contáctanos hoy y descubre cómo podemos ayudarte a hacerlo realidad.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#contacto" class="bg-red-600 hover:bg-red-700 text-white font-semibold px-10 py-4 rounded-lg transition-all hover:shadow-xl hover:shadow-red-600/30">
+                    Solicitar cotización gratuita
+                </a>
+                <a href="tel:+522721178195" class="border-2 border-white/80 text-white hover:bg-white hover:text-slate-800 font-semibold px-10 py-4 rounded-lg transition-all">
+                    Llamar ahora
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
+                <!-- Logo y descripción -->
+                <div class="col-span-2 lg:col-span-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="src/assets/logo/essomani_logo.png" alt="Essomani Logo" class="w-10 h-10 object-contain">
+                        <span class="text-white font-bold text-xl">ESSOMANI</span>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Especialistas en Soldadura y Mantenimiento Industrial. Calidad y compromiso en cada proyecto.
+                    </p>
+                </div>
+
+                <!-- Navegación -->
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Navegación</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#inicio" class="text-slate-400 hover:text-red-500 transition-colors text-sm">Inicio</a></li>
+                        <li><a href="#servicios" class="text-slate-400 hover:text-red-500 transition-colors text-sm">Servicios</a></li>
+                        <li><a href="#especialidades" class="text-slate-400 hover:text-red-500 transition-colors text-sm">Especialidades</a></li>
+                        <li><a href="#nosotros" class="text-slate-400 hover:text-red-500 transition-colors text-sm">Nosotros</a></li>
+                    </ul>
+                </div>
+
+                <!-- Servicios -->
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Servicios</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-slate-400 hover:text-red-500 transition-colors text-sm">Pailería</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-red-500 transition-colors text-sm">Maquinaria</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-red-500 transition-colors text-sm">Transportadores</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-red-500 transition-colors text-sm">Soldadura</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contacto -->
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Contacto</h4>
+                    <ul class="space-y-3">
+                        <li class="text-slate-400 text-sm">fco.gonzalez@essomani.com</li>
+                        <li class="text-slate-400 text-sm">(+52) 272-117-8195</li>
+                        <li class="text-slate-400 text-sm">Ixtaczoquitlán, Veracruz</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Separador -->
+            <div class="border-t border-slate-800 pt-8 flex flex-col lg:flex-row justify-between items-center gap-4">
+                <p class="text-slate-500 text-sm">© 2026 Essomani. Todos los derechos reservados.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="text-slate-500 hover:text-red-500 transition-colors text-sm">Aviso de privacidad</a>
+                    <a href="#" class="text-slate-500 hover:text-red-500 transition-colors text-sm">FAQ</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
