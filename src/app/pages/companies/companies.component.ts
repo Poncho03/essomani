@@ -4,9 +4,10 @@ import { Specialities } from 'src/app/interfaces/specialities';
 import { BaseService } from 'src/app/services/base.service';
 
 @Component({
-  selector: 'app-companies',
-  templateUrl: './companies.component.html',
-  styleUrls: ['./companies.component.scss']
+    selector: 'app-companies',
+    templateUrl: './companies.component.html',
+    styleUrls: ['./companies.component.scss'],
+    standalone: false
 })
 export class CompaniesComponent implements OnInit{
 
