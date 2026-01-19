@@ -2,9 +2,10 @@ import { AfterViewInit, Component, Input } from '@angular/core';
 import { Images } from 'src/app/interfaces/image';
 
 @Component({
-  selector: 'app-carousel',
-  templateUrl: './carousel.component.html',
-  styleUrls: ['./carousel.component.scss']
+    selector: 'app-carousel',
+    templateUrl: './carousel.component.html',
+    styleUrls: ['./carousel.component.scss'],
+    standalone: false
 })
 export class CarouselComponent implements AfterViewInit{
 

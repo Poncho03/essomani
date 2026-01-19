@@ -12,37 +12,30 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { ProductsComponent } from './pages/products/products.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { CommonModule } from '@angular/common';
 import { PrivacyComponent } from './pages/info/privacy/privacy.component';
 import { FaqsComponent } from './pages/info/faqs/faqs.component';
 import { DevelopmentComponent } from './pages/info/development/development.component';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    NavbarComponent,
-    FooterComponent,
-    CompaniesComponent,
-    PageNotFoundComponent,
-    ProductsComponent,
-    AboutComponent,
-    ContactComponent,
-    CarouselComponent,
-    PrivacyComponent,
-    FaqsComponent,
-    DevelopmentComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NgbModule,
-    HttpClientModule,
-    CommonModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        HomeComponent,
+        NavbarComponent,
+        FooterComponent,
+        CompaniesComponent,
+        PageNotFoundComponent,
+        ProductsComponent,
+        AboutComponent,
+        ContactComponent,
+        CarouselComponent,
+        PrivacyComponent,
+        FaqsComponent,
+        DevelopmentComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        NgbModule,
+        CommonModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
