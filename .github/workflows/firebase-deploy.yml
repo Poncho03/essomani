@@ -1,0 +1,54 @@
+# Deploy manual a Firebase Hosting
+# Ejecutar desde: GitHub → Actions → "Deploy to Firebase Hosting" → Run workflow
+
+name: Deploy to Firebase Hosting
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Ambiente de despliegue'
+        required: true
+        default: 'production'
+        type: choice
+        options:
+          - production
+          - preview
+
+permissions:
+  checks: write
+  contents: read
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build application
+        run: npm run build
+
+      - name: Deploy to Firebase Hosting (Production)
+        if: ${{ github.event.inputs.environment == 'production' }}
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ESSOMANI }}
+          projectId: essomani
+          channelId: live
+
+      - name: Deploy to Firebase Hosting (Preview)
+        if: ${{ github.event.inputs.environment == 'preview' }}
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ESSOMANI }}
+          projectId: essomani
