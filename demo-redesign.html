@@ -94,6 +94,34 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
+
+        /* Modal proyecto */
+        #modal-proyecto[aria-hidden="true"] {
+            opacity: 0;
+            pointer-events: none;
+        }
+        #modal-proyecto[aria-hidden="false"] {
+            opacity: 1;
+        }
+
+        .line-clamp-2 {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+        }
+
+        /* Scroll horizontal infinito - empresas */
+        @keyframes marquee-empresas {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .marquee-empresas-track {
+            animation: marquee-empresas 40s linear infinite;
+        }
+        .marquee-empresas-track:hover {
+            animation-play-state: paused;
+        }
     </style>
 </head>
 <body class="bg-slate-50">
@@ -110,9 +138,9 @@
 
                 <!-- Desktop Menu -->
                 <div class="hidden lg:flex items-center gap-8">
-                    <a href="#inicio" class="text-white hover:text-red-500 transition-colors font-medium">Inicio</a>
                     <a href="#servicios" class="text-gray-300 hover:text-red-500 transition-colors font-medium">Servicios</a>
                     <a href="#especialidades" class="text-gray-300 hover:text-red-500 transition-colors font-medium">Especialidades</a>
+                    <a href="#proyectos" class="text-gray-300 hover:text-red-500 transition-colors font-medium">Proyectos</a>
                     <a href="#nosotros" class="text-gray-300 hover:text-red-500 transition-colors font-medium">Nosotros</a>
                     <a href="#contacto" class="text-gray-300 hover:text-red-500 transition-colors font-medium">Contacto</a>
                 </div>
@@ -411,6 +439,110 @@
         </div>
     </section>
 
+    <!-- Galería de Proyectos -->
+    <section id="proyectos" class="py-20 lg:py-28 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-slate-200 text-slate-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">Portafolio</span>
+                <h2 class="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">Proyectos realizados</h2>
+                <p class="text-slate-600 text-lg max-w-2xl mx-auto">Algunos de los trabajos que hemos desarrollado para empresas líderes en el sector industrial. Haz clic en cualquier proyecto para ver más fotos y detalles.</p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 lg:gap-4" id="grid-proyectos">
+                <!-- Los 20 proyectos se generan por JS; aquí fallback con botones por data-index -->
+                <button type="button" class="project-card group relative block overflow-hidden rounded-xl aspect-[4/3] focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 text-left" data-index="0">
+                    <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="" class="project-thumb w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex items-end p-3 sm:p-4"><span class="text-white font-semibold text-xs sm:text-sm line-clamp-2" data-title>Tanques industriales</span></div>
+                </button>
+                <button type="button" class="project-card group relative block overflow-hidden rounded-xl aspect-[4/3] focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 text-left" data-index="1">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="" class="project-thumb w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex items-end p-3 sm:p-4"><span class="text-white font-semibold text-xs sm:text-sm line-clamp-2" data-title>Montaje de maquinaria</span></div>
+                </button>
+                <button type="button" class="project-card group relative block overflow-hidden rounded-xl aspect-[4/3] focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 text-left" data-index="2">
+                    <img src="https://images.unsplash.com/photo-1586864387789-628af9feed72?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="" class="project-thumb w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex items-end p-3 sm:p-4"><span class="text-white font-semibold text-xs sm:text-sm line-clamp-2" data-title>Transportadores de banda</span></div>
+                </button>
+                <button type="button" class="project-card group relative block overflow-hidden rounded-xl aspect-[4/3] focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 text-left" data-index="3">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="" class="project-thumb w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex items-end p-3 sm:p-4"><span class="text-white font-semibold text-xs sm:text-sm line-clamp-2" data-title>Estructuras metálicas</span></div>
+                </button>
+                <button type="button" class="project-card group relative block overflow-hidden rounded-xl aspect-[4/3] focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 text-left" data-index="4">
+                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="" class="project-thumb w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex items-end p-3 sm:p-4"><span class="text-white font-semibold text-xs sm:text-sm line-clamp-2" data-title>Soldadura certificada</span></div>
+                </button>
+                <button type="button" class="project-card group relative block overflow-hidden rounded-xl aspect-[4/3] focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 text-left" data-index="5">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="" class="project-thumb w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex items-end p-3 sm:p-4"><span class="text-white font-semibold text-xs sm:text-sm line-clamp-2" data-title>Equipos a presión</span></div>
+                </button>
+                <button type="button" class="project-card group relative block overflow-hidden rounded-xl aspect-[4/3] focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 text-left" data-index="6">
+                    <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="" class="project-thumb w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex items-end p-3 sm:p-4"><span class="text-white font-semibold text-xs sm:text-sm line-clamp-2" data-title>Tolvas acero inoxidable</span></div>
+                </button>
+                <button type="button" class="project-card group relative block overflow-hidden rounded-xl aspect-[4/3] focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 text-left" data-index="7">
+                    <img src="https://images.unsplash.com/photo-1567789884554-0b844b597180?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="" class="project-thumb w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex items-end p-3 sm:p-4"><span class="text-white font-semibold text-xs sm:text-sm line-clamp-2" data-title>Ductos industriales</span></div>
+                </button>
+                <button type="button" class="project-card group relative block overflow-hidden rounded-xl aspect-[4/3] focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 text-left" data-index="8">
+                    <img src="https://images.unsplash.com/photo-1590959651373-a3db0f38a961?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="" class="project-thumb w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex items-end p-3 sm:p-4"><span class="text-white font-semibold text-xs sm:text-sm line-clamp-2" data-title>Transportador helicoidal</span></div>
+                </button>
+                <button type="button" class="project-card group relative block overflow-hidden rounded-xl aspect-[4/3] focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 text-left" data-index="9">
+                    <img src="https://images.unsplash.com/photo-1533106497176-45ae19e68ba2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="" class="project-thumb w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex items-end p-3 sm:p-4"><span class="text-white font-semibold text-xs sm:text-sm line-clamp-2" data-title>Tanques grado alimenticio</span></div>
+                </button>
+                <button type="button" class="project-card group relative block overflow-hidden rounded-xl aspect-[4/3] focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 text-left" data-index="10">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="" class="project-thumb w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex items-end p-3 sm:p-4"><span class="text-white font-semibold text-xs sm:text-sm line-clamp-2" data-title>Reparación maquinaria</span></div>
+                </button>
+                <button type="button" class="project-card group relative block overflow-hidden rounded-xl aspect-[4/3] focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 text-left" data-index="11">
+                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="" class="project-thumb w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex items-end p-3 sm:p-4"><span class="text-white font-semibold text-xs sm:text-sm line-clamp-2" data-title>Pailería especializada</span></div>
+                </button>
+                <button type="button" class="project-card group relative block overflow-hidden rounded-xl aspect-[4/3] focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 text-left" data-index="12">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="" class="project-thumb w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex items-end p-3 sm:p-4"><span class="text-white font-semibold text-xs sm:text-sm line-clamp-2" data-title>Soldadura radiografiada</span></div>
+                </button>
+                <button type="button" class="project-card group relative block overflow-hidden rounded-xl aspect-[4/3] focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 text-left" data-index="13">
+                    <img src="https://images.unsplash.com/photo-1586864387789-628af9feed72?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="" class="project-thumb w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex items-end p-3 sm:p-4"><span class="text-white font-semibold text-xs sm:text-sm line-clamp-2" data-title>Montaje extractores</span></div>
+                </button>
+                <button type="button" class="project-card group relative block overflow-hidden rounded-xl aspect-[4/3] focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 text-left" data-index="14">
+                    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="" class="project-thumb w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex items-end p-3 sm:p-4"><span class="text-white font-semibold text-xs sm:text-sm line-clamp-2" data-title>Tanques almacenamiento</span></div>
+                </button>
+                <button type="button" class="project-card group relative block overflow-hidden rounded-xl aspect-[4/3] focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 text-left" data-index="15">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="" class="project-thumb w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex items-end p-3 sm:p-4"><span class="text-white font-semibold text-xs sm:text-sm line-clamp-2" data-title>Transportadores cangilones</span></div>
+                </button>
+                <button type="button" class="project-card group relative block overflow-hidden rounded-xl aspect-[4/3] focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 text-left" data-index="16">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="" class="project-thumb w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex items-end p-3 sm:p-4"><span class="text-white font-semibold text-xs sm:text-sm line-clamp-2" data-title>Tubería acero al carbón</span></div>
+                </button>
+                <button type="button" class="project-card group relative block overflow-hidden rounded-xl aspect-[4/3] focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 text-left" data-index="17">
+                    <img src="https://images.unsplash.com/photo-1590959651373-a3db0f38a961?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="" class="project-thumb w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex items-end p-3 sm:p-4"><span class="text-white font-semibold text-xs sm:text-sm line-clamp-2" data-title>Equipos sanitarios</span></div>
+                </button>
+                <button type="button" class="project-card group relative block overflow-hidden rounded-xl aspect-[4/3] focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 text-left" data-index="18">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="" class="project-thumb w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex items-end p-3 sm:p-4"><span class="text-white font-semibold text-xs sm:text-sm line-clamp-2" data-title>Montaje compresores</span></div>
+                </button>
+                <button type="button" class="project-card group relative block overflow-hidden rounded-xl aspect-[4/3] focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 text-left" data-index="19">
+                    <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="" class="project-thumb w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex items-end p-3 sm:p-4"><span class="text-white font-semibold text-xs sm:text-sm line-clamp-2" data-title>Fabricación especial</span></div>
+                </button>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#contacto" class="inline-flex items-center bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-3 rounded-lg transition-all hover:shadow-lg hover:shadow-red-600/25">
+                    ¿Tienes un proyecto en mente?
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Valores -->
     <section id="nosotros" class="py-20 lg:py-28 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -420,7 +552,7 @@
                 <p class="text-slate-600 text-lg max-w-2xl mx-auto">Los principios que guían cada uno de nuestros proyectos y relaciones de negocio.</p>
             </div>
 
-            <div class="grid grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                 <!-- Value 1 -->
                 <div class="value-card bg-slate-50 rounded-xl p-6 lg:p-8 transition-all duration-300 hover:shadow-xl hover:bg-white border border-slate-100 hover:border-red-100">
                     <div class="w-14 h-14 bg-slate-800 rounded-lg flex items-center justify-center mb-5">
@@ -531,14 +663,26 @@
     </section>
 
     <!-- Empresas que confían -->
-    <section class="py-16 bg-white border-y border-slate-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p class="text-center text-slate-400 font-medium mb-10">Empresas que confían en nosotros</p>
-            <div class="flex flex-wrap justify-center items-center gap-12 lg:gap-20">
-                <div class="text-3xl font-bold text-slate-200 hover:text-red-600 transition-colors cursor-pointer">TOTIS</div>
-                <div class="text-3xl font-bold text-slate-200 hover:text-red-600 transition-colors cursor-pointer">JARRITOS</div>
-                <div class="text-3xl font-bold text-slate-200 hover:text-red-600 transition-colors cursor-pointer">PACHUCA</div>
-                <div class="text-3xl font-bold text-slate-200 hover:text-red-600 transition-colors cursor-pointer">+10 más</div>
+    <section class="py-16 bg-white border-y border-slate-100" aria-label="Empresas que confían en nosotros">
+        <p class="text-center text-slate-400 font-medium mb-10">Empresas que confían en nosotros</p>
+        <div class="overflow-hidden">
+            <div class="marquee-empresas-track flex items-center gap-12 lg:gap-20 w-max" style="will-change: transform;">
+                <!-- Primera copia (para loop infinito) -->
+                <span class="text-2xl sm:text-3xl font-bold text-slate-200 hover:text-red-600 transition-colors flex-shrink-0 whitespace-nowrap px-4">TOTIS</span>
+                <span class="text-2xl sm:text-3xl font-bold text-slate-200 hover:text-red-600 transition-colors flex-shrink-0 whitespace-nowrap px-4">JARRITOS</span>
+                <span class="text-2xl sm:text-3xl font-bold text-slate-200 hover:text-red-600 transition-colors flex-shrink-0 whitespace-nowrap px-4">PACHUCA</span>
+                <span class="text-2xl sm:text-3xl font-bold text-slate-200 hover:text-red-600 transition-colors flex-shrink-0 whitespace-nowrap px-4">Cafiver</span>
+                <span class="text-2xl sm:text-3xl font-bold text-slate-200 hover:text-red-600 transition-colors flex-shrink-0 whitespace-nowrap px-4">CFE</span>
+                <span class="text-2xl sm:text-3xl font-bold text-slate-200 hover:text-red-600 transition-colors flex-shrink-0 whitespace-nowrap px-4">Intralox</span>
+                <span class="text-2xl sm:text-3xl font-bold text-slate-200 hover:text-red-600 transition-colors flex-shrink-0 whitespace-nowrap px-4">Mayekawa</span>
+                <!-- Segunda copia (mismo orden para scroll infinito) -->
+                <span class="text-2xl sm:text-3xl font-bold text-slate-200 hover:text-red-600 transition-colors flex-shrink-0 whitespace-nowrap px-4">TOTIS</span>
+                <span class="text-2xl sm:text-3xl font-bold text-slate-200 hover:text-red-600 transition-colors flex-shrink-0 whitespace-nowrap px-4">JARRITOS</span>
+                <span class="text-2xl sm:text-3xl font-bold text-slate-200 hover:text-red-600 transition-colors flex-shrink-0 whitespace-nowrap px-4">PACHUCA</span>
+                <span class="text-2xl sm:text-3xl font-bold text-slate-200 hover:text-red-600 transition-colors flex-shrink-0 whitespace-nowrap px-4">Cafiver</span>
+                <span class="text-2xl sm:text-3xl font-bold text-slate-200 hover:text-red-600 transition-colors flex-shrink-0 whitespace-nowrap px-4">CFE</span>
+                <span class="text-2xl sm:text-3xl font-bold text-slate-200 hover:text-red-600 transition-colors flex-shrink-0 whitespace-nowrap px-4">Intralox</span>
+                <span class="text-2xl sm:text-3xl font-bold text-slate-200 hover:text-red-600 transition-colors flex-shrink-0 whitespace-nowrap px-4">Mayekawa</span>
             </div>
         </div>
     </section>
@@ -677,6 +821,7 @@
                         <li><a href="#inicio" class="text-slate-400 hover:text-red-500 transition-colors text-sm">Inicio</a></li>
                         <li><a href="#servicios" class="text-slate-400 hover:text-red-500 transition-colors text-sm">Servicios</a></li>
                         <li><a href="#especialidades" class="text-slate-400 hover:text-red-500 transition-colors text-sm">Especialidades</a></li>
+                        <li><a href="#proyectos" class="text-slate-400 hover:text-red-500 transition-colors text-sm">Proyectos</a></li>
                         <li><a href="#nosotros" class="text-slate-400 hover:text-red-500 transition-colors text-sm">Nosotros</a></li>
                     </ul>
                 </div>
@@ -713,6 +858,197 @@
             </div>
         </div>
     </footer>
+
+    <!-- Modal detalle proyecto -->
+    <div id="modal-proyecto" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-proyecto-titulo" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/80 transition-opacity duration-300" style="transition: opacity 0.3s;">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] flex flex-col overflow-hidden border border-slate-200" id="modal-content">
+            <!-- Cabecera: título + cerrar -->
+            <div class="flex items-center justify-between p-4 sm:p-6 border-b border-slate-100 flex-shrink-0">
+                <h2 id="modal-proyecto-titulo" class="text-xl sm:text-2xl font-bold text-slate-800 truncate pr-4"></h2>
+                <button type="button" id="modal-cerrar" class="p-2 rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500" aria-label="Cerrar">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <!-- Carrusel imagen grande -->
+            <div class="relative flex-shrink-0 bg-slate-100">
+                <div class="aspect-video w-full overflow-hidden rounded-none bg-slate-200">
+                    <img id="modal-imagen" src="" alt="" class="w-full h-full object-contain">
+                </div>
+                <button type="button" id="modal-img-prev" class="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 shadow-lg flex items-center justify-center text-slate-700 hover:bg-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500" aria-label="Foto anterior">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                </button>
+                <button type="button" id="modal-img-next" class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 shadow-lg flex items-center justify-center text-slate-700 hover:bg-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500" aria-label="Siguiente foto">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </button>
+                <div id="modal-dots" class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5"></div>
+            </div>
+            <!-- Info: empresa, lugar, descripción -->
+            <div class="p-4 sm:p-6 overflow-y-auto flex-1">
+                <dl class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-4">
+                    <div class="flex items-start gap-3">
+                        <dt class="text-slate-500 text-sm font-medium flex-shrink-0">Empresa</dt>
+                        <dd id="modal-empresa" class="text-slate-800 font-semibold text-sm sm:text-base"></dd>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <dt class="text-slate-500 text-sm font-medium flex-shrink-0">Lugar</dt>
+                        <dd id="modal-lugar" class="text-slate-800 text-sm sm:text-base"></dd>
+                    </div>
+                    <div class="sm:col-span-2 flex items-start gap-3">
+                        <dt class="text-slate-500 text-sm font-medium flex-shrink-0">Año</dt>
+                        <dd id="modal-ano" class="text-slate-800 text-sm sm:text-base"></dd>
+                    </div>
+                </dl>
+                <p id="modal-descripcion" class="text-slate-600 text-sm sm:text-base leading-relaxed"></p>
+            </div>
+            <!-- Navegación proyecto anterior/siguiente -->
+            <div class="flex items-center justify-between p-4 sm:p-6 border-t border-slate-100 flex-shrink-0 bg-slate-50">
+                <button type="button" id="modal-proyecto-prev" class="inline-flex items-center text-slate-600 hover:text-red-600 font-medium text-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 rounded px-2 py-1">
+                    <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                    Anterior
+                </button>
+                <span id="modal-contador" class="text-slate-500 text-sm font-medium">1 / 20</span>
+                <button type="button" id="modal-proyecto-next" class="inline-flex items-center text-slate-600 hover:text-red-600 font-medium text-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 rounded px-2 py-1">
+                    Siguiente
+                    <svg class="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            var proyectos = [
+                { titulo: 'Tanques industriales', empresa: 'Totis', lugar: 'Orizaba, Veracruz', ano: '2024', descripcion: 'Fabricación e instalación de tanques de acero inoxidable para proceso alimenticio. Incluyó pailería, soldadura certificada y montaje in situ.', imagenes: ['https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'] },
+                { titulo: 'Montaje de maquinaria industrial', empresa: 'Jarritos', lugar: 'Córdoba, Veracruz', ano: '2024', descripcion: 'Montaje y alineación de maquinaria de producción. Incluyó bases de anclaje, nivelación y puesta en marcha.', imagenes: ['https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1586864387789-628af9feed72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'] },
+                { titulo: 'Transportadores de banda', empresa: 'Empresa Alimenticia', lugar: 'Xalapa, Veracruz', ano: '2023', descripcion: 'Diseño y montaje de sistema de transportadores de banda en acero inoxidable, grado alimenticio.', imagenes: ['https://images.unsplash.com/photo-1586864387789-628af9feed72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'] },
+                { titulo: 'Estructuras metálicas', empresa: 'Industria XYZ', lugar: 'Ixtaczoquitlán, Veracruz', ano: '2023', descripcion: 'Estructura metálica para nave industrial: columnas, vigas y entrepisos en acero al carbón.', imagenes: ['https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'] },
+                { titulo: 'Soldadura certificada', empresa: 'Pemex', lugar: 'Coatzacoalcos, Veracruz', ano: '2023', descripcion: 'Trabajos de soldadura con calidad radiografiada en tubería y equipos a presión.', imagenes: ['https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'] },
+                { titulo: 'Equipos a presión', empresa: 'Grupo Bimbo', lugar: 'Puebla, Puebla', ano: '2024', descripcion: 'Fabricación de tanques herméticos a presión para proceso industrial.', imagenes: ['https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'] },
+                { titulo: 'Tolvas acero inoxidable', empresa: 'Lala', lugar: 'Veracruz, Veracruz', ano: '2023', descripcion: 'Tolvas de recepción y dosificación en acero inoxidable, grado alimenticio.', imagenes: ['https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'] },
+                { titulo: 'Ductos industriales', empresa: 'Cemex', lugar: 'Veracruz, Veracruz', ano: '2023', descripcion: 'Fabricación e instalación de ductos y chimeneas en placa de acero al carbón.', imagenes: ['https://images.unsplash.com/photo-1567789884554-0b844b597180?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'] },
+                { titulo: 'Transportador helicoidal', empresa: 'Alimentos ABC', lugar: 'Orizaba, Veracruz', ano: '2024', descripcion: 'Montaje de transportador helicoidal en acero inoxidable para manejo de producto alimenticio.', imagenes: ['https://images.unsplash.com/photo-1590959651373-a3db0f38a961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'] },
+                { titulo: 'Tanques grado alimenticio', empresa: 'Herdez', lugar: 'Córdoba, Veracruz', ano: '2024', descripcion: 'Tanques de almacenamiento en acero inoxidable con acabado sanitario.', imagenes: ['https://images.unsplash.com/photo-1533106497176-45ae19e68ba2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'] },
+                { titulo: 'Reparación maquinaria', empresa: 'Nestlé', lugar: 'Xalapa, Veracruz', ano: '2023', descripcion: 'Reparación y reacondicionamiento de maquinaria de producción en planta.', imagenes: ['https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'] },
+                { titulo: 'Pailería especializada', empresa: 'ArcelorMittal', lugar: 'Veracruz, Veracruz', ano: '2023', descripcion: 'Piezas especiales en placa y lámina: conos, reducciones y estructuras de soporte.', imagenes: ['https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'] },
+                { titulo: 'Soldadura radiografiada', empresa: 'CFE', lugar: 'Veracruz, Veracruz', ano: '2023', descripcion: 'Soldaduras con estándar de calidad radiografiada en tubería y equipos.', imagenes: ['https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'] },
+                { titulo: 'Montaje extractores', empresa: 'Kimberly-Clark', lugar: 'Ixtaczoquitlán, Veracruz', ano: '2024', descripcion: 'Instalación de extractores y ductos de ventilación industrial.', imagenes: ['https://images.unsplash.com/photo-1586864387789-628af9feed72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'] },
+                { titulo: 'Tanques almacenamiento', empresa: 'Braskem', lugar: 'Coatzacoalcos, Veracruz', ano: '2024', descripcion: 'Tanques de almacenamiento de producto químico con recubrimiento especial.', imagenes: ['https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'] },
+                { titulo: 'Transportadores cangilones', empresa: 'Maseca', lugar: 'Orizaba, Veracruz', ano: '2023', descripcion: 'Sistema de elevación por cangilones y transportadores asociados.', imagenes: ['https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'] },
+                { titulo: 'Tubería acero al carbón', empresa: 'Refinería', lugar: 'Minatitlán, Veracruz', ano: '2023', descripcion: 'Tubería de proceso en acero al carbón, soldadura certificada.', imagenes: ['https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'] },
+                { titulo: 'Equipos sanitarios', empresa: 'Jumex', lugar: 'Córdoba, Veracruz', ano: '2024', descripcion: 'Equipos en acero inoxidable con acabado sanitario para industria de bebidas.', imagenes: ['https://images.unsplash.com/photo-1590959651373-a3db0f38a961?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'] },
+                { titulo: 'Montaje compresores', empresa: 'Industria automotriz', lugar: 'Puebla, Puebla', ano: '2024', descripcion: 'Montaje y alineación de compresores y equipos auxiliares.', imagenes: ['https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'] },
+                { titulo: 'Fabricación especial', empresa: 'Cliente privado', lugar: 'Ixtaczoquitlán, Veracruz', ano: '2024', descripcion: 'Fabricación de piezas especiales según diseño del cliente para proyecto industrial.', imagenes: ['https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'] }
+            ];
+
+            var modal = document.getElementById('modal-proyecto');
+            var modalTitulo = document.getElementById('modal-proyecto-titulo');
+            var modalImagen = document.getElementById('modal-imagen');
+            var modalEmpresa = document.getElementById('modal-empresa');
+            var modalLugar = document.getElementById('modal-lugar');
+            var modalAno = document.getElementById('modal-ano');
+            var modalDescripcion = document.getElementById('modal-descripcion');
+            var modalContador = document.getElementById('modal-contador');
+            var modalDots = document.getElementById('modal-dots');
+            var btnCerrar = document.getElementById('modal-cerrar');
+            var btnImgPrev = document.getElementById('modal-img-prev');
+            var btnImgNext = document.getElementById('modal-img-next');
+            var btnProyectoPrev = document.getElementById('modal-proyecto-prev');
+            var btnProyectoNext = document.getElementById('modal-proyecto-next');
+
+            var proyectoIndex = 0;
+            var imagenIndex = 0;
+
+            function abrirModal(index) {
+                proyectoIndex = index;
+                imagenIndex = 0;
+                modal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+                pintarProyecto();
+            }
+
+            function cerrarModal() {
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            }
+
+            function pintarProyecto() {
+                var p = proyectos[proyectoIndex];
+                if (!p) return;
+                var imgs = Array.isArray(p.imagenes) ? p.imagenes : (p.imagenes ? [p.imagenes] : []);
+                modalTitulo.textContent = p.titulo;
+                modalEmpresa.textContent = p.empresa;
+                modalLugar.textContent = p.lugar;
+                modalAno.textContent = p.ano;
+                modalDescripcion.textContent = p.descripcion;
+                modalContador.textContent = (proyectoIndex + 1) + ' / ' + proyectos.length;
+                imagenIndex = 0;
+                modalImagen.src = imgs[0] || '';
+                modalImagen.alt = p.titulo;
+                // Dots y flechas de fotos (solo si hay más de una)
+                var variasFotos = imgs.length > 1;
+                btnImgPrev.style.visibility = variasFotos ? 'visible' : 'hidden';
+                btnImgNext.style.visibility = variasFotos ? 'visible' : 'hidden';
+                modalDots.innerHTML = '';
+                if (variasFotos) {
+                    for (var i = 0; i < imgs.length; i++) {
+                        var dot = document.createElement('button');
+                        dot.type = 'button';
+                        dot.className = 'w-2 h-2 rounded-full transition-colors ' + (i === 0 ? 'bg-red-600' : 'bg-white/80');
+                        dot.setAttribute('aria-label', 'Foto ' + (i + 1));
+                        (function (j) { dot.addEventListener('click', function () { imagenIndex = j; modalImagen.src = imgs[j]; actualizarDots(); }); })(i);
+                        modalDots.appendChild(dot);
+                    }
+                }
+                btnProyectoPrev.style.visibility = proyectoIndex === 0 ? 'hidden' : 'visible';
+                btnProyectoNext.style.visibility = proyectoIndex === proyectos.length - 1 ? 'hidden' : 'visible';
+            }
+
+            function actualizarDots() {
+                var p = proyectos[proyectoIndex];
+                var imgs = p.imagenes;
+                var dots = modalDots.querySelectorAll('button');
+                for (var i = 0; i < dots.length; i++) dots[i].className = 'w-2 h-2 rounded-full transition-colors ' + (i === imagenIndex ? 'bg-red-600' : 'bg-white/80');
+            }
+
+            btnImgPrev.addEventListener('click', function () {
+                var p = proyectos[proyectoIndex];
+                var imgs = p.imagenes;
+                imagenIndex = imagenIndex <= 0 ? imgs.length - 1 : imagenIndex - 1;
+                modalImagen.src = imgs[imagenIndex];
+                actualizarDots();
+            });
+            btnImgNext.addEventListener('click', function () {
+                var p = proyectos[proyectoIndex];
+                var imgs = p.imagenes;
+                imagenIndex = imagenIndex >= imgs.length - 1 ? 0 : imagenIndex + 1;
+                modalImagen.src = imgs[imagenIndex];
+                actualizarDots();
+            });
+            btnProyectoPrev.addEventListener('click', function () {
+                if (proyectoIndex > 0) { proyectoIndex--; imagenIndex = 0; pintarProyecto(); }
+            });
+            btnProyectoNext.addEventListener('click', function () {
+                if (proyectoIndex < proyectos.length - 1) { proyectoIndex++; imagenIndex = 0; pintarProyecto(); }
+            });
+            btnCerrar.addEventListener('click', cerrarModal);
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) cerrarModal();
+            });
+            document.addEventListener('keydown', function (e) {
+                if (modal.getAttribute('aria-hidden') === 'true') return;
+                if (e.key === 'Escape') cerrarModal();
+                if (e.key === 'ArrowLeft') btnProyectoPrev.click();
+                if (e.key === 'ArrowRight') btnProyectoNext.click();
+            });
+
+            document.querySelectorAll('.project-card').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    var idx = parseInt(btn.getAttribute('data-index'), 10);
+                    if (!isNaN(idx)) abrirModal(idx);
+                });
+            });
+        })();
+    </script>
 
 </body>
 </html>
