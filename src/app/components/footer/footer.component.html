@@ -1,85 +1,53 @@
-<div class="container-fluid footer">
-    
-    <div class="container">
-        <div class="row">
-
-            <div class="col-md-4 col-sm-12 my-1">
-                <div class="d-flex justify-content-center align-items-center">
-                    <div class="d-block text-center">
-                        <img src="assets/logo/essomani_logo.png" alt="..." width="90" class="mb-3">
-                        <p class="mx-4 text-center text-cursive cursor-none"><small>"En Essomani concentrados, trabajamos limpios, seguros y sin atajos".</small></p>
-                        <p class="mx-5 text-justify cursor-none"><small>Empresa siderúrgica 100% mexicana especialista en la elaboración y mantenimiento de estructuras y equipo industrial.</small></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-12 my-1 px-5">
-                <p class="text-center cursor-none"><strong>Información de contacto</strong></p>
-                <div class="d-flex justify-content-center align-items-center">
-                    <div class="d-flex flex-column bd-highlight mb-3">
-                        <div class="p-2 bd-highlight cursor-none">
-                            <div class="d-flex align-items-center">
-                                <span class="material-symbols-sharp ms-2">mail</span>
-                                <p class="m-0 ms-3"><small>fco.gonzalez&#64;essomani.com</small></p>
-                            </div>
-                        </div>
-                        <hr class="m-2">
-                        <div class="p-2 bd-highlight cursor-none">
-                            <div class="d-flex align-items-center">
-                                <span class="material-symbols-sharp ms-2">call</span>
-                                <p class="m-0 ms-3"><small>(+52) 272-117-81-95</small></p>
-                            </div>
-                        </div>
-                        <hr class="m-2">
-                        <div class="p-2 bd-highlight cursor-none">
-                            <div class="d-flex align-items-center">
-                                <span class="material-symbols-sharp ms-2">location_on</span>
-                                <p class="m-0 ms-3"><small>Sur 9 #22-A Esquina Ote. 1, 94460, Ixtaczoquitlán, Veracruz, México.</small></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-12 my-1">
-                <p class="text-center cursor-none"><strong>Acerca del sitio</strong></p>
-                <div class="d-flex justify-content-center align-items-center">
-                    <div class="d-flex flex-column bd-highlight mb-3">
-                        <a href="/privacy" class="nav-link">
-                            <div class="p-2 bd-highlight" >
-                                <div class="d-flex align-items-center">
-                                    <span class="material-symbols-sharp ms-2">report</span>
-                                    <p class="m-0 ms-3"><small>Privacidad</small></p>
-                                </div>
-                            </div>
-                        </a>
-                        <hr class="m-2">
-                        <a href="/faqs" class="nav-link">
-                            <div class="p-2 bd-highlight">
-                                <div class="d-flex align-items-center">
-                                    <span class="material-symbols-sharp ms-2">help</span>
-                                    <p class="m-0 ms-3"><small>Preguntas frecuentes</small></p>
-                                </div>
-                            </div>
-                        </a>
-                        <hr class="m-2">
-                        <a href="/development" class="nav-link">
-                            <div class="p-2 bd-highlight">
-                                <div class="d-flex align-items-center">
-                                    <span class="material-symbols-sharp ms-2">code_blocks</span>
-                                    <p class="m-0 ms-3"><small>Desarrollo</small></p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
+<footer class="bg-slate-900 text-white py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
+      <div class="col-span-2 lg:col-span-1">
+        <div class="flex items-center gap-3 mb-4">
+          <img src="assets/logo/essomani_logo.png" alt="Essomani Logo" class="w-10 h-10 object-contain">
+          <span class="text-white font-bold text-xl">ESSOMANI</span>
         </div>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          Especialistas en Soldadura y Mantenimiento Industrial. Calidad y compromiso en cada proyecto.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-white mb-4">Navegación</h4>
+        <ul class="space-y-3">
+          <li><a href="#home" class="text-slate-400 hover:text-red-500 transition-colors text-sm" (click)="scrollToSection('home', $event)">Inicio</a></li>
+          <li><a href="#services" class="text-slate-400 hover:text-red-500 transition-colors text-sm" (click)="scrollToSection('services', $event)">Servicios</a></li>
+          <li><a href="#specialities" class="text-slate-400 hover:text-red-500 transition-colors text-sm" (click)="scrollToSection('specialities', $event)">Especialidades</a></li>
+          <li><a href="#projects" class="text-slate-400 hover:text-red-500 transition-colors text-sm" (click)="scrollToSection('projects', $event)">Proyectos</a></li>
+          <li><a href="#us" class="text-slate-400 hover:text-red-500 transition-colors text-sm" (click)="scrollToSection('us', $event)">Nosotros</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-white mb-4">Servicios</h4>
+        <ul class="space-y-3">
+          <li><a href="#services" class="text-slate-400 hover:text-red-500 transition-colors text-sm" (click)="scrollToSection('services', $event)">Pailería</a></li>
+          <li><a href="#services" class="text-slate-400 hover:text-red-500 transition-colors text-sm" (click)="scrollToSection('services', $event)">Maquinaria</a></li>
+          <li><a href="#services" class="text-slate-400 hover:text-red-500 transition-colors text-sm" (click)="scrollToSection('services', $event)">Transportadores</a></li>
+          <li><a href="#services" class="text-slate-400 hover:text-red-500 transition-colors text-sm" (click)="scrollToSection('services', $event)">Soldadura</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-white mb-4">Contacto</h4>
+        <ul class="space-y-3">
+          <li class="text-slate-400 text-sm">fco.gonzalez&#64;essomani.com</li>
+          <li class="text-slate-400 text-sm">(+52) 272-117-8195</li>
+          <li class="text-slate-400 text-sm">Ixtaczoquitlán, Veracruz, México</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="text-center">
-        <p class="m-0 footer-info cursor-none">
-            <small><code>Essomani S.A de C.V. | {{year}}</code></small>
-        </p>
+    <div class="border-t border-slate-800 pt-8 flex flex-col lg:flex-row justify-between items-center gap-4">
+      <p class="text-slate-500 text-sm">© {{ year }} Essomani. Todos los derechos reservados.</p>
+      <div class="flex gap-6">
+        <a href="/privacy" class="text-slate-500 hover:text-red-500 transition-colors text-sm">Aviso de privacidad</a>
+        <a href="/faqs" class="text-slate-500 hover:text-red-500 transition-colors text-sm">FAQ</a>
+      </div>
     </div>
-</div>
+  </div>
+</footer>

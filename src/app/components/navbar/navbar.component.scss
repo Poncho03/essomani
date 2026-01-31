@@ -1,29 +1,4 @@
-/* Color of the links BEFORE scroll */
-.navbar-scroll .nav-link,
-.navbar-scroll .fa-bars,
-.navbar-scroll .navar-brand {
-  color: #9e9e9e;
-}
-
-.navbar-scroll .nav-link:hover {
-  color: #ffffff;
-}
-
-/* Color of the links AFTER scroll */
-.navbar-scrolled .nav-link,
-.navbar-scrolled .fa-bars,
-.navbar-scrolled .navar-brand {
-  color: #4f4f4f;
-}
-
-/* Color of the navbar AFTER scroll */
-.navbar-scroll,
-.navbar-scrolled {
-  background-color: #1a1a1a;
-}
-
-/* An optional height of the navbar AFTER scroll */
-.navbar.navbar-scroll.navbar-scrolled {
-  padding-top: 5px;
-  padding-bottom: 5px;
+/* Navbar: estilos con Tailwind en el template */
+:host {
+  display: block;
 }

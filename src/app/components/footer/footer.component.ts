@@ -10,7 +10,12 @@ export class FooterComponent {
 
   public year: string;
 
-  constructor(){
+  constructor() {
     this.year = new Date().getFullYear().toString();
+  }
+
+  scrollToSection(id: string, event: Event): void {
+    event.preventDefault();
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }

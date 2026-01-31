@@ -1,9 +1,4 @@
-.navbar-margin-top{
-    margin-top: 7vh;
-}
-
-@media only screen and (max-width: 1349px) {
-    .navbar-margin-top{
-        margin-top: 7vh;
-    }
+/* Estilos del contenedor principal; el resto con Tailwind en templates */
+:host {
+  display: block;
 }

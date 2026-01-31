@@ -1,0 +1,36 @@
+<section id="home" class="hero-bg h-screen flex flex-col relative pt-16 lg:pt-20">
+  <div class="flex-1 flex items-center justify-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center lg:text-left">
+      <div class="lg:max-w-3xl">
+        <span class="animate-fade-in-up inline-block bg-amber-500/20 text-amber-400 text-sm font-semibold px-4 py-2 rounded-full mb-6">
+          Más de 15 años de experiencia
+        </span>
+        <h1 class="animate-fade-in-up text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-tight mb-6">
+          Especialistas en
+          <span class="text-red-500">Soldadura</span> y
+          <span class="text-red-500">Mantenimiento Industrial</span>
+        </h1>
+        <p class="animate-fade-in-up-delay text-xl text-gray-300 mb-10 max-w-2xl">
+          Calidad, seguridad y compromiso en cada proyecto. Desarrollamos soluciones industriales con los más altos estándares para las mejores empresas del país.
+        </p>
+        <div class="animate-fade-in-up-delay-2 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <a href="#services" class="bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-4 rounded-lg transition-all hover:shadow-xl hover:shadow-red-600/30 text-center" (click)="scrollToSection('services', $event)">
+            Conocer servicios
+          </a>
+          <a href="#contact" class="border-2 border-white/80 text-white hover:bg-white hover:text-slate-800 font-semibold px-8 py-4 rounded-lg transition-all text-center" (click)="scrollToSection('contact', $event)">
+            Solicitar cotización
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Indicador visual: invita a hacer scroll (no es enlace) -->
+  <div class="flex-shrink-0 flex justify-center pb-8">
+    <span class="text-white/60 inline-block animate-bounce" aria-hidden="true">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+      </svg>
+    </span>
+  </div>
+</section>

@@ -9,17 +9,17 @@ import { ProductsComponent } from './pages/products/products.component';
 import { PrivacyComponent } from './pages/info/privacy/privacy.component';
 import { FaqsComponent } from './pages/info/faqs/faqs.component';
 import { DevelopmentComponent } from './pages/info/development/development.component';
+import { LandingComponent } from './sections/landing/landing.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: LandingComponent },
+  { path: 'privacy', component: PrivacyComponent },
+  { path: 'faqs', component: FaqsComponent },
+  { path: 'development', component: DevelopmentComponent },
   { path: 'our-people', component: CompaniesComponent },
   { path: 'services', component: ProductsComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'privacy', component: PrivacyComponent },
-  { path: 'faqs', component: FaqsComponent },
-  { path: 'development', component: DevelopmentComponent },
-  { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
 

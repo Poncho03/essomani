@@ -1,0 +1,13 @@
+<section class="py-16 bg-white border-y border-slate-100" aria-label="Empresas que confían en nosotros">
+  <p class="text-center text-slate-400 font-medium mb-10">Empresas que confían en nosotros</p>
+  <div class="overflow-hidden">
+    <div class="marquee-empresas-track flex items-center gap-12 lg:gap-20 w-max" style="will-change: transform;">
+      @for (empresa of empresas; track empresa) {
+        <span class="text-2xl sm:text-3xl font-bold text-slate-200 hover:text-red-600 transition-colors flex-shrink-0 whitespace-nowrap px-4">{{ empresa }}</span>
+      }
+      @for (empresa of empresas; track empresa) {
+        <span class="text-2xl sm:text-3xl font-bold text-slate-200 hover:text-red-600 transition-colors flex-shrink-0 whitespace-nowrap px-4">{{ empresa }}</span>
+      }
+    </div>
+  </div>
+</section>
