@@ -10,32 +10,60 @@
       <!-- Formulario -->
       <div class="bg-white rounded-2xl p-8 lg:p-10 shadow-sm border border-slate-100">
         <h3 class="text-xl font-bold text-slate-800 mb-6">Envíanos un mensaje</h3>
-        <form class="space-y-6" (ngSubmit)="onSubmit()">
+        <form #contactForm="ngForm" class="space-y-6" (ngSubmit)="onSubmit()">
           <div>
-            <label class="block text-sm font-medium text-slate-700 mb-2">Nombre completo</label>
-            <input type="text" [(ngModel)]="form.nombre" name="nombre"
+            <label class="block text-sm font-medium text-slate-700 mb-2">Nombre completo <span class="text-red-500">*</span></label>
+            <input type="text" [(ngModel)]="form.nombre" name="nombre" #nombre="ngModel"
+                   required maxlength="100"
+                   [class.border-red-500]="nombre.invalid && nombre.touched"
                    class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-red-500 focus:outline-none transition-colors"
                    placeholder="Tu nombre">
+            @if (nombre.invalid && nombre.touched) {
+              <p class="text-red-500 text-sm mt-1">El nombre es obligatorio (máx. {{ maxLength.nombre }} caracteres).</p>
+            }
           </div>
           <div>
-            <label class="block text-sm font-medium text-slate-700 mb-2">Correo electrónico</label>
-            <input type="email" [(ngModel)]="form.email" name="email"
+            <label class="block text-sm font-medium text-slate-700 mb-2">Correo electrónico <span class="text-red-500">*</span></label>
+            <input type="email" [(ngModel)]="form.email" name="email" #email="ngModel"
+                   required maxlength="254" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                   [class.border-red-500]="email.invalid && email.touched"
                    class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-red-500 focus:outline-none transition-colors"
                    placeholder="correo@ejemplo.com">
+            @if (email.invalid && email.touched) {
+              <p class="text-red-500 text-sm mt-1">
+                @if (email.errors?.['required']) {
+                  El correo es obligatorio.
+                } @else if (email.errors?.['pattern'] || email.errors?.['email']) {
+                  Introduce un correo electrónico válido (máx. {{ maxLength.email }} caracteres).
+                } @else {
+                  Introduce un correo electrónico válido.
+                }
+              </p>
+            }
           </div>
           <div>
             <label class="block text-sm font-medium text-slate-700 mb-2">Empresa (opcional)</label>
             <input type="text" [(ngModel)]="form.empresa" name="empresa"
+                   maxlength="200"
                    class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-red-500 focus:outline-none transition-colors"
                    placeholder="Nombre de tu empresa">
+            <p class="text-slate-400 text-xs mt-1">Máximo {{ maxLength.empresa }} caracteres.</p>
           </div>
           <div>
-            <label class="block text-sm font-medium text-slate-700 mb-2">Mensaje</label>
-            <textarea rows="4" [(ngModel)]="form.mensaje" name="mensaje"
+            <label class="block text-sm font-medium text-slate-700 mb-2">Mensaje <span class="text-red-500">*</span></label>
+            <textarea rows="4" [(ngModel)]="form.mensaje" name="mensaje" #mensaje="ngModel"
+                      required maxlength="2000"
+                      [class.border-red-500]="mensaje.invalid && mensaje.touched"
                       class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-red-500 focus:outline-none transition-colors resize-none"
                       placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+            @if (mensaje.invalid && mensaje.touched) {
+              <p class="text-red-500 text-sm mt-1">El mensaje es obligatorio (máx. {{ maxLength.mensaje }} caracteres).</p>
+            } @else {
+              <p class="text-slate-400 text-xs mt-1">Máximo {{ maxLength.mensaje }} caracteres.</p>
+            }
           </div>
-          <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-4 rounded-lg transition-all hover:shadow-lg hover:shadow-red-600/25">
+          <button type="submit" [disabled]="contactForm.invalid"
+                  class="w-full py-4 rounded-lg font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none bg-red-600 hover:bg-red-700 text-white hover:shadow-lg hover:shadow-red-600/25">
             Enviar mensaje
           </button>
         </form>
@@ -83,13 +111,16 @@
           </div>
         </div>
 
-        <div class="bg-slate-100 rounded-xl h-48 flex items-center justify-center overflow-hidden border border-slate-200">
-          <div class="text-center">
-            <svg class="w-12 h-12 text-slate-300 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
-            </svg>
-            <p class="text-slate-400 text-sm">Aquí iría el mapa de Google Maps</p>
-          </div>
+        <div class="bg-slate-100 rounded-xl overflow-hidden border border-slate-200 aspect-video min-h-[12rem]">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d943.9438884836089!2d-97.05931173040052!3d18.852644998894156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTjCsDUxJzA5LjUiTiA5N8KwMDMnMzEuMiJX!5e0!3m2!1ses-419!2smx!4v1769884715006!5m2!1ses-419!2smx"
+            width="600"
+            height="450"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
       </div>
     </div>
