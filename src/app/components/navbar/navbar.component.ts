@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { MobileMenuService, NAV_SECTIONS } from '../../services/mobile-menu.service';
 
 /** IDs de las secciones del navbar (en orden de aparición en la página) */
 const NAV_SECTION_IDS = ['home', 'services', 'specialities', 'projects', 'us', 'contact'] as const;
@@ -13,18 +14,15 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   /** ID de la sección actualmente visible (scroll spy) */
   activeSection: string = 'home';
 
-  readonly navSections: { id: string; label: string }[] = [
-    { id: 'services', label: 'Servicios' },
-    { id: 'specialities', label: 'Especialidades' },
-    { id: 'projects', label: 'Proyectos' },
-    { id: 'us', label: 'Nosotros' },
-    { id: 'contact', label: 'Contacto' }
-  ];
+  readonly navSections = NAV_SECTIONS;
 
   /** Offset desde el top para considerar una sección "activa" (altura del navbar + margen) */
   private readonly scrollOffset = 120;
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(
+    private cdr: ChangeDetectorRef,
+    public menuService: MobileMenuService
+  ) {}
 
   ngOnInit(): void {
     this.updateActiveSection();
@@ -66,6 +64,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   /** Hace scroll suave hasta la sección con el ID dado. Evita la navegación por hash. */
   scrollToSection(id: string, event: Event): void {
     event.preventDefault();
+    this.menuService.close();
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });

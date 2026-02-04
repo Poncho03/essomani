@@ -1,14 +1,14 @@
-<section id="contact" class="py-20 lg:py-28 bg-slate-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="contact" class="w-full min-w-0 py-20 lg:py-28 bg-slate-50 overflow-x-hidden">
+  <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-w-0">
     <div class="text-center mb-16">
       <span class="inline-block bg-slate-200 text-slate-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">Contáctanos</span>
       <h2 class="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">¿Listo para comenzar tu proyecto?</h2>
       <p class="text-slate-600 text-lg max-w-2xl mx-auto">Estamos aquí para ayudarte. Contáctanos y recibe una cotización personalizada.</p>
     </div>
 
-    <div class="grid lg:grid-cols-2 gap-12">
+    <div class="grid lg:grid-cols-2 gap-12 min-w-0">
       <!-- Formulario -->
-      <div class="bg-white rounded-2xl p-8 lg:p-10 shadow-sm border border-slate-100">
+      <div class="min-w-0 bg-white rounded-2xl p-8 lg:p-10 shadow-sm border border-slate-100">
         <h3 class="text-xl font-bold text-slate-800 mb-6">Envíanos un mensaje</h3>
         <form #contactForm="ngForm" class="space-y-6" (ngSubmit)="onSubmit()">
           <div>
@@ -70,7 +70,7 @@
       </div>
 
       <!-- Info de contacto -->
-      <div class="space-y-6">
+      <div class="space-y-6 min-w-0">
         <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 flex items-start gap-5 hover:shadow-md transition-shadow">
           <div class="w-14 h-14 bg-red-50 rounded-lg flex items-center justify-center flex-shrink-0">
             <svg class="w-7 h-7 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -111,12 +111,10 @@
           </div>
         </div>
 
-        <div class="bg-slate-100 rounded-xl overflow-hidden border border-slate-200 aspect-video min-h-[12rem]">
+        <div class="bg-slate-100 rounded-xl overflow-hidden border border-slate-200 aspect-video min-h-[12rem] min-w-0 relative w-full">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d943.9438884836089!2d-97.05931173040052!3d18.852644998894156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTjCsDUxJzA5LjUiTiA5N8KwMDMnMzEuMiJX!5e0!3m2!1ses-419!2smx!4v1769884715006!5m2!1ses-419!2smx"
-            width="600"
-            height="450"
-            style="border:0;"
+            class="absolute inset-0 w-full h-full border-0"
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade">

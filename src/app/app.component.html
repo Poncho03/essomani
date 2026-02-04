@@ -3,3 +3,31 @@
 <router-outlet></router-outlet>
 
 <app-footer></app-footer>
+
+<!-- Menú móvil: abre desde arriba con animación -->
+@if (menuService.open$ | async) {
+  <div class="lg:hidden fixed inset-0 z-[9999]" aria-modal="true" role="dialog" aria-label="Menú de navegación" @menuOverlay>
+    <div class="absolute inset-0 bg-black/60" (click)="menuService.close()" aria-hidden="true"></div>
+    <div class="absolute top-0 left-0 right-0 w-full max-h-[85vh] overflow-y-auto bg-slate-800 border-b border-slate-700 shadow-xl rounded-b-2xl" @menuPanel>
+      <div class="flex items-center justify-between px-4 py-3 border-b border-slate-700">
+        <span class="text-white font-bold text-lg">Menú</span>
+        <button type="button" class="p-2 text-white hover:bg-slate-700 rounded-lg" aria-label="Cerrar menú" (click)="menuService.close()">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <nav class="px-4 py-4 space-y-1" aria-label="Secciones">
+        <a href="#home" class="block py-3 px-4 rounded-lg text-white font-medium hover:bg-slate-700 transition-colors" (click)="onMobileNavClick('home', $event)">Inicio</a>
+        @for (item of navSections; track item.id) {
+          <a [href]="'#' + item.id"
+             class="block py-3 px-4 rounded-lg text-slate-200 font-medium hover:text-red-500 hover:bg-slate-700 transition-colors"
+             (click)="onMobileNavClick(item.id, $event)">
+            {{ item.label }}
+          </a>
+        }
+        <a href="#contact" class="block py-3 px-4 mt-4 rounded-lg bg-red-600 hover:bg-red-700 text-white font-semibold text-center" (click)="onMobileNavClick('contact', $event)">
+          Solicitar cotización
+        </a>
+      </nav>
+    </div>
+  </div>
+}

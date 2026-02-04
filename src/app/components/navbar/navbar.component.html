@@ -1,5 +1,5 @@
-<nav class="fixed top-0 left-0 right-0 z-50 nav-blur bg-slate-800/95 border-b border-slate-700/50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<nav class="fixed top-0 left-0 right-0 z-50 w-full nav-blur bg-slate-800/95 border-b border-slate-700/50">
+  <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 lg:h-20">
       <a href="#home" class="flex items-center gap-3 font-bold text-xl tracking-tight text-white hover:text-red-500 transition-colors" (click)="scrollToSection('home', $event)">
         <img src="assets/logo/essomani_logo.png" alt="Essomani Logo" class="w-12 h-12 object-contain">
@@ -23,10 +23,16 @@
         </a>
       </div>
 
-      <button class="lg:hidden text-white p-2" type="button" aria-label="Menú">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
+      <button class="lg:hidden text-white p-2 rounded-lg hover:bg-slate-700/50 transition-colors border border-transparent hover:border-slate-600 focus:outline-none focus:ring-2 focus:ring-red-500" type="button" aria-label="Abrir menú" [attr.aria-expanded]="menuService.isOpen" (click)="menuService.toggle()">
+        @if (menuService.isOpen) {
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        } @else {
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        }
       </button>
     </div>
   </div>
