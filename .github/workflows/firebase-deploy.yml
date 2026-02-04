@@ -37,7 +37,7 @@ jobs:
         run: npm run build
 
       - name: Deploy to Firebase Hosting (Production)
-        if: ${{ github.event.inputs.environment == 'production' }}
+        if: ${{ github.event.inputs.environment == 'production' && github.ref == 'refs/heads/main' }}
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
@@ -46,9 +46,10 @@ jobs:
           channelId: live
 
       - name: Deploy to Firebase Hosting (Preview)
-        if: ${{ github.event.inputs.environment == 'preview' }}
+        if: ${{ github.event.inputs.environment == 'preview' && github.ref == 'refs/heads/demo-design' }}
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ESSOMANI }}
           projectId: essomani
+          channelId: preview
